@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+<div>
+    <h2>Registration Form</h2>
+
+    <form id="Regisform">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required><br><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required><br><br>
+
+        <label for="phone">Phone</label>
+        <input type="number" id="phone" required><br><br>
+
+        <label for="event">Select Event</label>
+        <select id="event" required>
+            <option value="workshop">Workshop</option>
+            <option value="seminar">Seminar</option>
+            <option value="conference">Conference</option>
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    const form = document.getElementById('Regisform');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const event = document.getElementById('event').value;
+
+        messageDiv.textContent = `Thank you, ${name}. You are registered for the ${event} event.`;
+
+        form.reset();
+    });
+</script>
+</body>
+</html>
